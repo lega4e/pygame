@@ -86,6 +86,10 @@ class Game:
 		return
 
 
+	def go_iteration(self, time):
+		return
+
+
 
 
 
