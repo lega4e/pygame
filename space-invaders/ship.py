@@ -72,9 +72,9 @@ class Ship:
 
 		# bullets
 		for bul in self.buls:
-			 bul.top -= self.sets.bullet_speed * time
-			 if bul.bottom < 0:
-				 self.buls.remove(bul)
+			bul.top -= self.sets.bullet_speed * time
+			if bul.bottom < 0:
+				self.buls.remove(bul)
 
 		return
 
