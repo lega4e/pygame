@@ -53,22 +53,22 @@ while running:
 
 
     # ship motion
-    if motion == 'left' and x - SHIP_SPEED > 0:
-        x -= SHIP_SPEED
+    if motion == 'left' and ship.left - SHIP_SPEED > 0:
+        ship.left -= SHIP_SPEED
     elif(
         motion == 'right' and
         ship.right + SHIP_SPEED < WIDTH
     ):
-        x += SHIP_SPEED
-    elif motion == 'up' and y - SHIP_SPEED > 0:
-        y -= SHIP_SPEED
+        ship.left += SHIP_SPEED
+    elif motion == 'up' and ship.top - SHIP_SPEED > 0:
+        ship.top -= SHIP_SPEED
     elif(
         motion == 'down' and
         ship.bottom + SHIP_SPEED < HEIGHT
     ):
-        y += SHIP_SPEED
-    ship.left = x
-    ship.top  = y
+        ship.top += SHIP_SPEED
+    #  ship.left = x
+    #  ship.top  = y
 
     
     # drawing

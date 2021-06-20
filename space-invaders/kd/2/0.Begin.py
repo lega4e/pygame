@@ -12,6 +12,7 @@ FPS    = 60
 SHIP_SPEED   = 5
 BULLET_SPEED = 10
 ENEMY_SPEED  = 2
+STAR_SPEED   = 1
 
 BLACK = (0, 0, 0)
 
@@ -21,6 +22,12 @@ BLACK = (0, 0, 0)
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
+
+# stars
+star_img  = pygame.image.load('starinv.png')
+ws, hs    = 30, 10
+stars     = []
+next_star = randint(5, 10)
 
 # ship
 ship_img = pygame.image.load('razorinv.png')
@@ -88,6 +95,21 @@ while running:
     ship.top  = y
     
 
+	# stars
+    next_star -= 1
+    if next_star <= 0:
+        next_star += randint(15, 40)
+        stars.append(pygame.Rect(
+            randint(0, WIDTH-ws), -hs,
+            ws, hs
+        ))
+        
+    for star in stars:
+        star.top += STAR_SPEED
+        if star.top > HEIGHT:
+            stars.remove(star)
+    
+    
 	# enemies
     next_enemy -= 1
     if next_enemy <= 0:
@@ -118,6 +140,8 @@ while running:
         screen.blit(bullet_img, (bul.left, bul.top))
     for enemy in enemies:
         screen.blit(enemy_img, (enemy.left, enemy.top))
+    for star in stars:
+        screen.blit(star_img, (star.left, star.top))
 
     pygame.display.update()
     clock.tick(FPS)

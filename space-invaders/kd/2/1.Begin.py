@@ -23,7 +23,7 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-# star
+# stars
 star_img  = pygame.image.load('starinv.png')
 ws, hs    = 30, 10
 stars     = []
@@ -76,7 +76,7 @@ while running:
                 motion = 'stop'
 
     
-	# ship motion
+    # ship motion
     if motion == 'left' and x - SHIP_SPEED > 0:
         x -= SHIP_SPEED
     elif(
@@ -95,7 +95,7 @@ while running:
     ship.top  = y
     
 
-	# stars
+    # stars
     next_star -= 1
     if next_star <= 0:
         next_star += randint(15, 40)
@@ -110,7 +110,7 @@ while running:
             stars.remove(star)
     
     
-	# enemies
+    # enemies
     next_enemy -= 1
     if next_enemy <= 0:
         next_enemy += randint(60, 90)
@@ -125,14 +125,14 @@ while running:
             enemies.remove(enemy)
     
     
-	# bullets
+    # bullets
     for bul in bullets:
         bul.top -= BULLET_SPEED
         if bul.bottom < 0:
             bullets.remove(bul)
     
     
-	# drawing
+    # drawing
     screen.fill(BLACK)
 
     screen.blit(ship_img, (x, y))
