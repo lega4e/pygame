@@ -8,8 +8,8 @@ WIDTH  = 500
 HEIGHT = 500
 FPS    = 60
 
-GRAVITY    = 20.0
-JUMP_POWER = 6.0
+GRAVITY    = 600.0
+JUMP_POWER = 200.0
 
 # Цвета
 YELLOW = (255, 255, 0)
@@ -53,7 +53,7 @@ while running:
                 bird_yspeed = bird_yspeed * 0.4 - JUMP_POWER
 
     bird_yspeed += GRAVITY * time
-    bird.top += bird_yspeed
+    bird.top += bird_yspeed * time
 
     if bird.bottom < 0 or bird.top > HEIGHT:
         game_over = True

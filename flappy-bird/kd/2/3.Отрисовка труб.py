@@ -92,7 +92,7 @@ while running:
     if not game_over:
         for pipe in pipes:
             pygame.draw.rect(screen, GREEN, pipe)
-		screen.blit(bird_imgs[bird_imgn % len(bird_imgs)], (bird.left, bird.top))
+        screen.blit(bird_imgs[bird_imgn % len(bird_imgs)], (bird.left, bird.top))
         bird_imgn += 1
     else:
         screen.blit(go_text, (100, 120))
